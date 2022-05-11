@@ -1,0 +1,1500 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title> Empa </title>
+
+</head>
+
+<body class="bg-light" style="text-align:center;">
+    <br />
+    <br />
+    <br />
+    <div class="form-group" align="center">
+        <h2><u>Exámen de Medicina Preventiva del Adulto </u></h2>
+    </div>
+
+    <div class="container">
+
+        <div class="jumbotron" align="center">
+
+            <div class="dropdown">
+                <span>
+                    <button type="button" class="btn btn-primary btn-lg" id="flip01"> &nbsp;Antecedentes Familiares&nbsp;&nbsp; </button>
+                </span>
+                <div class="dropdown-content">
+                    <p> Registro de las enfermedades y afecciones que se dan en la familia del paciente</p>
+                </div>
+            </div>
+            <div class="dropdown">
+                <span>
+                    <button type="button" class="btn btn-primary btn-lg" id="flip02"> &nbsp;&nbsp;&nbsp;Antecedentes Clínicos&nbsp;&nbsp;&nbsp;</button>
+                </span>
+                <div class="dropdown-content">
+                    <p> Registro e información sobre la salud de una persona </p>
+                </div>
+            </div>
+            <div class="dropdown">
+                <span>
+                    <button type="button" class="btn btn-primary btn-lg" id="flip03"> Antecedentes Salud Ocup. </button>
+                </span>
+                <div class="dropdown-content">
+                    <p> Registro acerca de la salud en el trabajo del paciente</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" id="antecfamiliares">
+            <div class="form-group">
+                <h3><u>Formulario </u></h3>
+            </div>
+            <div class="card-body">
+                <form class="g-3">
+                    <div id="flip"> Datos del paciente </div>
+                    <div id="panel">
+                        <div class="row">
+                            <div clase="col-md-12 form-group">
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label" for="inlineRadio1">INGRESO</label>
+                                    <input class="form-check-input" type="radio" name="RdoPaciente" id="ingreso" checked>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label" for="inlineRadio2">EMPA</label>
+                                    <input class="form-check-input" type="radio" name="RdoPaciente" id="empa">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="Run" class="">Run</label>
+                                    <input type="text" class="form-control form-control-lg" id="Run" placeholder="55.555.555-5">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="Edad">Edad</label>
+                                    <input type="text" class="form-control form-control-lg" id="Edad">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="Nombre">Nombre</label>
+                                    <input type="text" class="form-control form-control-lg" id="Nombre">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="PApellido" class="">Primer Apellido</label>
+                                    <input type="text" class="form-control form-control-lg" id="PApellido">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="SApellido" class="">Segundo Apellido</label>
+                                    <input type="text" class="form-control form-control-lg" id="SApellido">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="validationDefault04" class="form-label">Servicio</label>
+                                    <select class="form-select form-control-lg" id="validationDefault04" name="servicio" required>
+                                        <option selected disabled value=""></option>
+                                        <option>...</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="validationDefault04" class="form-label">Unidad</label>
+                                    <select class="form-select form-control-lg" id="validationDefault04" name="unidad" required>
+                                        <option selected disabled value=""></option>
+                                        <option>...</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="validationDefault04" class="form-label">Estamento</label>
+                                    <select class="form-select form-control-lg" id="validationDefault04" name="estamento" required>
+                                        <option selected disabled value=""></option>
+                                        <option>1. Médico </option>
+                                        <option>2. Profesional</option>
+                                        <option>3. Técnico</option>
+                                        <option>4. Administrativo</option>
+                                        <option>5. Auxiliar de apoyo</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="validationDefault04" class="form-label">Previsión</label>
+                                    <select class="form-select form-control-lg" id="validationDefault04" name="prevision" required>
+                                        <option selected disabled value=""></option>
+                                        <option>1. Isapre </option>
+                                        <option>2. Fonasa </option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="validationDefault04" class="form-label">Trabajo</label>
+                                    <select class="form-select form-control-lg" id="validationDefault04" name="trabajo" required>
+                                        <option selected disabled value=""></option>
+                                        <option>1. Diurno</option>
+                                        <option>2. 4to Turno</option>
+                                        <option>3. 3er Turno</option>
+                                        <option>4. Otro </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="validationDefault04" class="form-label">Situación contractual</label>
+                                    <select class="form-select form-control-lg" id="validationDefault04" name="contractual" required>
+                                        <option selected disabled value=""></option>
+                                        <option>1. Titular</option>
+                                        <option>2. Contrato</option>
+                                        <option>3. Honorario</option>
+                                        <option>4. Reemplazo</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                                        <label class="form-check-label" for="invalidCheck2">
+
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <button class="btn btn-primary" type="submit" id="siguiente1">Siguiente </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div align="right">
+                                <input class="btn btn-primary" id="boton0" type="button" value="↑">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="flip1"> 1. Antecedentes familiares </div>
+                    <div id="panel1">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="Hipertension Arterial" class="form-label">Hipertensión Arterial</label>
+                                    <input type="text" class="form-control form-control-lg" id="hiparterial" value="" name="hiparterial" required><br />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <br />
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label" for="inlineRadio1"> Si</label>
+                                    <input class="form-check-input" type="radio" name="Si01" value="" id="Si01" />
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label" for="inlineRadio2"> No</label>
+                                    <input class="form-check-input" type="radio" name="No01" value="" id="No01" />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="Diabetes" class="form-label">Diabetes</label>
+                                    <input type="text" class="form-control form-control-lg" id="diabetes" value="" name="diabetes" required><br />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <br />
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label" for="inlineRadio1"> Si</label>
+                                    <input class="form-check-input" type="radio" name="Si02" value="" id="Si02" />
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label" for="inlineRadio1"> No</label>
+                                    <input class="form-check-input" type="radio" name="No02" value="" id="No02" />
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <br />
+                                <div class="form-group">
+                                    <label for="validationDefault01" class="form-label"> Dislipidemia :</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <br />
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label" for="inlineRadio1"> Si</label>
+                                    <input class="form-check-input" type="radio" name="Si03" value="" id="Si03" />
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label" for="inlineRadio1"> No</label>
+                                    <input class="form-check-input" type="radio" name="No03" value="" id="No03" />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="validationDefault04" class="form-label">Otros</label>
+                                    <select class="form-select form-control-lg" id="otros" name="otros" required>
+                                        <option selected disabled value=""></option>
+                                        <option>1. </option>
+                                        <option>2. </option>
+                                        <option>3. </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                                    <label class="form-check-label" for="invalidCheck2">
+
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary" type="submit" id="siguiente2">Siguiente </button>
+                            </div>
+                            <div align="right">
+                                <input class="btn btn-primary" id="boton1" type="button" value=" ↑ ">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="flip2"> 2. Antecedentes Clínicos </div>
+                    <div id="panel2">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <br />
+                                    <label for="Enfermedades Cronicas" class="form-label"><u>Enfermedades Crónicas</u> :</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-check form-check-inline">
+                                    <br />
+                                    <label class="form-check-label" for="inlineRadio1">Si</label>
+                                    <input class="form-check-input" type="radio" name="si04" value="" id="si04" />
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label" for="inlineRadio1">No</label>
+                                    <input class="form-check-input" type="radio" name="no04" value="" id="no04" />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="validationDefault01" class="form-label">Cual</label>
+                                    <input type="text" class="form-control form-control-lg " id="cual01" value="" name="cual01" required>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <br />
+                                    <label for="validationDefault01" class="form-label"><u>Capacidad Diferente</u> :</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-check form-check-inline">
+                                    <br />
+                                    <label class="form-check-label" for="inlineRadio1">Si</label>
+                                    <input class="form-check-input" type="radio" name="si05" value="" id="si05" />
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label" for="inlineRadio1">No</label>
+                                    <input class="form-check-input" type="radio" name="no05" value="" id="no05" />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="validationDefault01" class="form-label">Cual</label>
+                                    <input type="text" class="form-control form-control-lg" id="validationDefault01" value="" name="cual02" required>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <br>
+                                <div class="form-group">
+                                    <label for="validationDefault01" class="form-label">-<u>Test de Goldberg</u>: </label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="validationDefault01" class="form-label">Puntaje </label>
+                                    <input type="text" class="form-control form-control-lg" id="validationDefault01" value="" name="puntaje" required><br />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <br />
+                                    <input class="form-check-input" type="checkbox" name="cincopuntos" value="" id="flexCheckDefault" />
+                                    <label class="form-check-label" for="flexCheckDefault"> ≥ 5 puntos  </label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <br />
+                                    <input class="form-check-input" type="checkbox" name="derivacion" value="" id="flexCheckChecked" />
+                                    <label class="form-check-label" for="flexCheckChecked"> Derivación a salud mental </label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <br />
+                                <div class="form-group">
+                                    <label for="validationDefault01" class="form-label">-<u>Estado Nutricional</u> :</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="validationDefault01" class="form-label">Peso </label>
+                                    <input type="text" class="form-control form-control-lg" id="validationDefault01" value="" name="peso" required><br />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="validationDefault01" class="form-label">Talla </label>
+                                    <input type="text" class="form-control form-control-lg" id="validationDefault01" value="" name="talla" required><br />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="validationDefault01" class="form-label">IMC </label>
+                                    <input type="text" class="form-control form-control-lg" id="validationDefault01" value="" name=imc required><br />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="validationDefault01" class="form-label">cc </label>
+                                    <input type="text" class="form-control form-control-lg" id="validationDefault01" value="" name="cc" required><br />
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="validationDefault04" class="form-label">Estado </label><br />
+                                    <select class="form-select form-control-lg" id="validationDefault04" name="estado" required>
+                                        <option selected disabled value=""></option>
+                                        <option>1. Enflaquecido </option>
+                                        <option>2. Normal </option>
+                                        <option>3. Sobrepeso </option>
+                                        <option>4. Obeso </option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                            </div>
+                            <br />
+                        </div>
+                        <div id="linea">
+                            <br /><hr />
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <br />
+                                    <label for="validationDefault01" class="form-label">Presión arterial</label>
+                                    <input type="text" class="form-control form-control-lg" id="validationDefault01" value="" name="presionarterial" required><br />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <br /><br />
+                                    <label for="validationDefault01" class="form-label"> Hipertensión : </label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-check form-check-inline">
+                                    <br /><br />
+                                    <label class="form-check-label" for="inlineRadio1">Si</label>
+                                    <input class="form-check-input" type="radio" name="si06" value="" id="si06" />
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <br />
+                                    <label class="form-check-label" for="inlineRadio1">No</label>
+                                    <input class="form-check-input" type="radio" name="no06" value="" id="no06" />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <br />
+                                <div class="form-group">
+                                    <br />
+                                    <input type="text" class="form-control" id="validationDefault01" value="" placeholder="Referida a control"><br />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="validationDefault01" class="form-label">Colesterol</label>
+                                    <input type="text" class="form-control form-control-lg" id="validationDefault01" value="" name="colesterol" required><br />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <br>
+                                <div class="form-group">
+                                    <label class="form-check-label" for="inlineRadio1"> normal </label>
+                                    <input class="form-check-input" type="radio" name="normal1" value="" id="normal1" />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <br />
+                                <div class="form-group">
+                                    <label class="form-check-label" for="inlineRadio1"> > de 200mg. </label>
+                                    <input class="form-check-input" type="radio" name="mayorde200" value="" id="mayorde200" />
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <br>
+                                <label for="validationDefault01" class="form-label"></label>
+                            </div>
+                            <div class="col-md-3">
+                                <br />
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="validationDefault01" value="" placeholder="Referida a control"><br />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="validationDefault01" class="form-label">Triglicéridos</label>
+                                    <input type="text" class="form-control form-control-lg" id="validationDefault01" value="" name="trigliceridos" required><br />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <br>
+                                <div class="form-group">
+                                    <label class="form-check-label" for="inlineRadio1"> normal </label>
+                                    <input class="form-check-input" type="radio" name="normal2" value="" id="normal2" />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <br />
+                                <div class="form-group">
+                                    <label class="form-check-label" for="inlineRadio1">> de 150mg.</label>
+                                    <input class="form-check-input" type="radio" name="mayorde150" value="" id="mayorde150" />
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <br>
+                                <label for="validationDefault01" class="form-label"></label>
+                            </div>
+                            <div class="col-md-3">
+                                <br />
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="validationDefault01" value="" placeholder="Referida a control"><br />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <br>
+                                <div class="form-group">
+                                    <label for="validationDefault01" class="form-label"></label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="validationDefault01" class="form-label">Glicemia</label>
+                                    <input type="text" class="form-control form-control-lg" id="validationDefault01" value="" name="glicemia" required><br />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <br>
+                                <div class="form-group">
+                                    <label class="form-check-label" for="inlineRadio1"> normal </label>
+                                    <input class="form-check-input" type="radio" name="normal3" value="" />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <br />
+                                <div class="form-group">
+                                    <label class="form-check-label" for="inlineRadio1">> de 105mg.</label>
+                                    <input class="form-check-input" type="radio" name="mayorde105" value="" id="mayorde105" />
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <br>
+                                <label for="validationDefault01" class="form-label"></label>
+                            </div>
+                            <div class="col-md-3">
+                                <br />
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="validationDefault01" value="" placeholder="Referida a control"><br />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <br>
+                                <label for="validationDefault01" class="form-label"></label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="validationDefault01" class="form-label">TSH</label>
+                                    <input type="text" class="form-control form-control-lg" id="validationDefault01" value="" name="tsh" required><br />
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <br>
+                                <div class="form-group">
+
+                                    <input class="form-check-input" type="checkbox" name="normal4" value="" id="flexCheckDefault" />
+                                    <label class="form-check-label" for="flexCheckDefault"> normal  </label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <br />
+                                    <input class="form-check-input" type="checkbox" name="hipoti" value="" id="flexCheckChecked" />
+                                    <label class="form-check-label" for="flexCheckChecked"> Hipoti </label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <br />
+                                    <input class="form-check-input" type="checkbox" name="hipert" value="" id="flexCheckChecked" />
+                                    <label class="form-check-label" for="flexCheckChecked"> Hipert </label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <br />
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="validationDefault01" value="" placeholder="Referida a control"><br />
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <br>
+                                <label for="validationDefault01" class="form-label"></label>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="validationDefault01" class="form-label">VDRL</label>
+                                    <input type="text" class="form-control form-control-lg" id="validationDefault01" value="" name="vdrl" required><br />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <br>
+                                <div class="form-group">
+                                    <label class="form-check-label" for="inlineRadio1"> No Reactivo </label>
+                                    <input class="form-check-input" type="radio" name="noreactivo" value="" />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <br>
+                                <div class="form-group">
+                                    <label class="form-check-label" for="inlineRadio1"> Reactivo </label>
+                                    <input class="form-check-input" type="radio" name="reactivo" value="" />
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <br>
+                                <label for="validationDefault01" class="form-label"></label>
+                            </div>
+                            <div class="col-md-3">
+                                <br />
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="validationDefault01" value="" placeholder="Referida a control"><br />
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <br>
+                                <label for="validationDefault01" class="form-label"></label>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-1">
+                                <br />
+                                <div class="form-group">
+                                    <label for="validationDefault01" class="form-label"><u>Tos pos más de 15 días</u> :</label><br />
+                                </div>
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-2">
+                                <br />
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label" for="inlineRadio1"> No </label>
+                                    <input class="form-check-input" type="radio" name="no07" value="" />
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label" for="inlineRadio1"> Si </label>
+                                    <input class="form-check-input" type="radio" name="si07" value="" />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <br>
+                                <div class="form-group">
+                                    <label for="validationDefault01" class="form-label"> <u>basiloscopía</u></label>
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <br />
+                                <div class="form-group">
+                                    <label for="validationDefault01" class="form-label"> Se pide</label>
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <br />
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-lg" id="validationDefault01" value="" name="basiloscopia" required><br />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <br />
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="validationDefault01" value="" placeholder="Referida a control"><br />
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="validationDefault04" class="form-label"> Fuma </label><br />
+                                    <select class="form-select form-control-lg" id="validationDefault04" name="fuma" required>
+                                        <option selected disabled value=""></option>
+                                        <option>1. Nunca </option>
+                                        <option>2. Antes </option>
+                                        <option>3. Activo </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <br />
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="validationDefault01" value="" placeholder="Referida a control"><br />
+                                </div>
+                            </div>
+                            <div class="col-md-1"></div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="validationDefault04" class="form-label"> Bebe (audit) </label><br />
+                                    <select class="form-select form-control-lg" id="validationDefault04" name="bebe" required>
+                                        <option selected disabled value=""></option>
+                                        <option>1. Sin riesgo = 0 </option>
+                                        <option>2. Bajo riesgo = 1 a 7ptos. </option>
+                                        <option>3. Riesgo > 8 </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <br />
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="validationDefault01" value="" placeholder="Referida a control"><br />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="validationDefault04" class="form-label"> Antígeno prostático > 40 años </label><br />
+                                    <select class="form-select form-control-lg" id="validationDefault04" name="antigeno" required>
+                                        <option selected disabled value=""></option>
+                                        <option>1. Normal < 4.0 </option>
+                                        <option>2. alterado >= 4.1 </option>
+                                        <option>3. no corresponde </option>
+                                    </select>
+                                </div>
+                            </div><br /><br>
+                            <div class="col-md-2">
+                                <br />
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="validationDefault01" value="" placeholder="Referida a control"><br />
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <label for="validationDefault01" class="form-label"> </label>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="validationDefault04" class="form-label"> Papanicolao > 25 años  </label><br />
+                                    <select class="form-select form-control-lg" id="validationDefault04" name="papanicolao" required>
+                                        <option selected disabled value=""></option>
+                                        <option>1. Normal </option>
+                                        <option>2. Alterada </option>
+                                        <option>3. Pendiente </option>
+                                        <option>3. No corresponde </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <br />
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="validationDefault01" value="" placeholder="Referida a control"><br />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="validationDefault04" class="form-label"> Mamografía > 40 años </label><br />
+                                    <select class="form-select form-control-lg" id="validationDefault04" name="mamografia" required>
+                                        <option selected disabled value=""></option>
+                                        <option>1. Normal  </option>
+                                        <option>2. Alterada  </option>
+                                        <option>3. Pendiente </option>
+                                        <option>4. No corresponde </option>
+                                    </select>
+                                </div>
+                            </div><br /><br>
+                            <div class="col-md-2">
+                                <br />
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="validationDefault01" value="" placeholder="Referida a control"><br />
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <label for="validationDefault01" class="form-label"> </label>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="validationDefault04" class="form-label"> Evaluación dental  </label><br />
+                                    <select class="form-select form-control-lg" id="validationDefault04" name="evaluaciondental" required>
+                                        <option selected disabled value=""></option>
+                                        <option>1. Normal </option>
+                                        <option>2. Caries </option>
+                                        <option>3. Desdentado </option>
+                                        <option>4. Prótesis Dental </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <br />
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="validationDefault01" value="" placeholder="Referida a control"><br />
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="validationDefault01" class="form-label"> Realiza alguna actividad Física :</label><br />
+                                    <input type="text" class="form-control form-control-lg" id="validationDefault01" value="" name="actFisica" required>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="validationDefault04" class="form-label"> Con que frecuencia  </label><br />
+                                    <select class="form-select form-control-lg" id="validationDefault04" name="evaluaciondental" required>
+                                        <option selected disabled value=""></option>
+                                        <option>1. cada 15 días </option>
+                                        <option>2. 1 vez por semana </option>
+                                        <option>3. 2 a 3 veces por semana </option>
+                                        <option>4. 4 a 5 veces por semana </option>
+                                        <option>5. Todos los días </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                                    <label class="form-check-label" for="invalidCheck2">
+
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary" type="submit" id="siguiente3">Siguiente </button>
+                            </div>
+                            <div align="right">
+                                <input class="btn btn-primary" id="boton2" type="button" value="  ↑  ">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="flip3"> 3. Antecedentes Salud Ocupacional </div>
+                    <div id="panel3">
+                        <h3><u> 3.1 - Ocupación anterior </u></h3><br />
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="validationDefault04" class="form-label"> Servicio </label><br />
+                                    <select class="form-select form-control-lg " id="validationDefault04" name="servicio" required>
+                                        <option selected disabled value=""></option>
+                                        <option>1.   </option>
+                                        <option>2.   </option>
+                                        <option>3.   </option>
+                                    </select>
+                                </div>
+                            </div><br />
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="validationDefault04" class="form-label"> Cargo  </label><br />
+                                    <select class="form-select form-control-lg" id="validationDefault04" name="cargo" required>
+                                        <option selected disabled value=""></option>
+                                        <option>1.   </option>
+                                        <option>2.   </option>
+                                        <option>3.   </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="validationDefault01" class="form-label"> Años en el cargo </label>
+                                    <input type="number" class="form-control form-control-lg " id="validationDefault01" name="enelcargo" value=""><br />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="validationDefault01" class="form-label"> </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <br />
+                                <div class="form-group">
+                                    <label for="validationDefault01" class="form-label"> Accidentes Laborales </label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <br />
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label" for="inlineRadio1"> No </label>
+                                    <input class="form-check-input" type="radio" name="no08" value="" />
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label" for="inlineRadio1"> Si </label>
+                                    <input class="form-check-input" type="radio" name="si08" value="" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="validationDefault01" class="form-label"> Resolución </label>
+                                    <input type="text" class="form-control form-control-lg" id="validationDefault01" value="">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="validationDefault01" class="form-label"> </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <br />
+                                <div class="form-group">
+                                    <label for="validationDefault01" class="form-label"> Enfermedades profesionales </label>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="col-md-3">
+                                <br />
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label" for="inlineRadio1"> No </label>
+                                    <input class="form-check-input" type="radio" name="no09" value="" />
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label" for="inlineRadio1"> Si </label>
+                                    <input class="form-check-input" type="radio" name="si09" value="" />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="validationDefault01" class="form-label">Resolución</label>
+                                    <input type="text" class="form-control form-control-lg" id="validationDefault01" value="">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="validationDefault01" class="form-label"> </label>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <br />
+                                <div class="form-group">
+                                    <label for="validationDefault01" class="form-label">  Accidentes de trayecto</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <br />
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label" for="inlineRadio1"> No </label>
+                                    <input class="form-check-input" type="radio" name="no10" value="" />
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label" for="inlineRadio1"> Si </label>
+                                    <input class="form-check-input" type="radio" name="si10" value="" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="validationDefault01" class="form-label">Resolución </label>
+                                    <input type="text" class="form-control form-control-lg" id="validationDefault01" value="">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="validationDefault01" class="form-label"> </label>
+                                <br />
+                            </div>
+                        </div>
+                        <hr /><br />
+
+
+
+                        <h3><u> 3.2 - Ocupación Actual </u></h3>
+                        <u align="center"> Exposición a riesgos laborales </u>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <br />
+                                    <label for="validationDefault01" class="form-label">a. Físicos </label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <br />
+                                    <input class="form-check-input" type="checkbox" name="ruido" value="" id="flexCheckChecked" />
+                                    <label class="form-check-label" for="flexCheckChecked"> Ruido </label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <br />
+                                    <input class="form-check-input" type="checkbox" name="rx" value="" id="flexCheckChecked" />
+                                    <label class="form-check-label" for="flexCheckChecked"> RX </label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <br />
+                                    <input class="form-check-input" type="checkbox" name="Yodo131" value="" id="flexCheckChecked" />
+                                    <label class="form-check-label" for="flexCheckChecked"> Yodo 131 </label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <br />
+                                    <input class="form-check-input" type="checkbox" name="otros" value="" id="flexCheckChecked" />
+                                    <label class="form-check-label" for="flexCheckChecked"> otros </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <br />
+                                    <label for="validationDefault01" class="form-label">b. Químicos</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <br />
+                                    <input class="form-check-input" type="checkbox" name="gta" value="" id="flexCheckChecked" />
+                                    <label class="form-check-label" for="flexCheckChecked"> GTA </label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <br />
+                                    <input class="form-check-input" type="checkbox" name="citostaticos" value="" id="flexCheckChecked" />
+                                    <label class="form-check-label" for="flexCheckChecked"> citostáticos </label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <br />
+                                    <input class="form-check-input" type="checkbox" name="anestésicos" value="" id="flexCheckChecked" />
+                                    <label class="form-check-label" for="flexCheckChecked"> G.anestésicos </label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <br />
+                                    <input class="form-check-input" type="checkbox" name="xilol" value="" id="flexCheckChecked" />
+                                    <label class="form-check-label" for="flexCheckChecked"> Xilol </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <br />
+                                    <label for="validationDefault01" class="form-label">c. Biológicos</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <br />
+                                    <input class="form-check-input" type="checkbox" name="tbc" value="" id="flexCheckChecked" />
+                                    <label class="form-check-label" for="flexCheckChecked"> TBC </label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <br />
+                                    <input class="form-check-input" type="checkbox" name="fluidos" value="" id="flexCheckChecked" />
+                                    <label class="form-check-label" for="flexCheckChecked"> manejo fluidos corporales </label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <br />
+                                    <label class="form-check-label" for="flexCheckChecked"></label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-3">
+
+                                <div class="dropdown">
+                                    
+                                    <div class="form-group">
+                                        <br />
+                                        <label for="validationDefault01" class="form-label">d. Ergonómicos </label>
+                                    </div>    
+                                    
+                                    <div class="dropdown-content">
+                                        <p>
+                                            traslado pacientes / equipos / uso fuerza / movimiento repetitivo / postura forzada
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-3">
+                                <br />
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label" for="inlineRadio1"> No </label>
+                                    <input class="form-check-input" type="radio" name="no11" value="" />
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label" for="inlineRadio1"> Si </label>
+                                    <input class="form-check-input" type="radio" name="si11" value="" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <br />
+                                    <label for="validationDefault01" class="form-label"></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <br />
+                                    <label for="validationDefault01" class="form-label">e. Otros</label>
+                                    <input type="text" class="form-control form-control-lg" id="validationDefault01" name="otros1" placeholder=" Indique cual " value="">
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <br />
+                                    <label for="validationDefault01" class="form-label">
+                                        - Uso de E.P.P. <br />
+
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <br />
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label" for="inlineRadio1"> No </label>
+                                    <input class="form-check-input" type="radio" name="no12" value="" />
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label" for="inlineRadio1"> Si </label>
+                                    <input class="form-check-input" type="radio" name="si12" value="" />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="validationDefault04" class="form-label"> Tipo  </label>
+                                    <select class="form-select form-control-lg" id="validationDefault04" name="tipo" required>
+                                        <option selected disabled value=""></option>
+                                        <option>1.   </option>
+                                        <option>2.   </option>
+                                        <option>3.   </option>
+                                        <option>4.   </option>
+                                        <option>5.   </option>
+                                        <option>6.   </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                            </div>
+
+                        </div>
+
+                        <br /><hr />
+                        <br />
+                        <h3><u> 3.3 - Conocimiento del riesgo </u></h3>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <br />
+                                    <label for="validationDefault01" class="form-label">
+                                        <u>a.-Información previa </u>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <br />
+                                    <input class="form-check-input" type="checkbox" name="capacitacion" value="" id="flexCheckChecked" />
+                                    <label class="form-check-label" for="flexCheckChecked"> Capacitación Personal </label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <br />
+                                    <input class="form-check-input" type="checkbox" name="interespersonal" value="" id="flexCheckChecked" />
+                                    <label class="form-check-label" for="flexCheckChecked"> Interés Personal </label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <br />
+                                <div class="form-group">
+                                    <label for="validationDefault01" class="form-check-label"><u>b.- Sin información previa <br />del riesgo</u> :</label>
+                                    <input type="checkbox" class="form-check-input" name="sininfoprevia" value="" />
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                            </div>
+                        </div>
+
+                        <br />
+                        <br />
+                        <div class="table-responsive">
+                            <table class="table table-striped" style="width:100%;">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th><u>Area Clínica </u></th>
+                                        <th> Completa </th>
+                                        <th> Incompleta </th>
+                                        <th> No vacunado</th>
+                                        <th> No sabe </th>
+                                        <th> Referido a vacunación </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table accordion">
+                                    <tr id="tipocolor1">
+                                        <th>Vacuna Hepatitis B</th>
+                                        <td align="center"><input type="radio" name="completa01" /> </td>
+                                        <td align="center"><input type="radio" name="incompleta01" /> </td>
+                                        <td align="center"><input type="radio" name="novacunado01" /> </td>
+                                        <td align="center"><input type="radio" name="nosabe01" /> </td>
+                                        <td align="center"><input type="radio" name="referido01" /> </td>
+                                    </tr>
+                                    <tr id="tipocolor2">
+                                        <th>Vacuna Covid</th>
+                                        <td align="center"><input type="radio" name="completa02" />  </td>
+                                        <td align="center"><input type="radio" name="incompleta02" />  </td>
+                                        <td align="center"><input type="radio" name="novacunado02" />  </td>
+                                        <td align="center"><input type="radio" name="nosabe02" />  </td>
+                                        <td align="center"><input type="radio" name="referido02" />  </td>
+                                    </tr>
+                                    <tr id="tipocolor1">
+                                        <th>Vacuna antiinfluenza</th>
+                                        <td align="center"> <input type="radio" name="completa03" /> </td>
+                                        <td align="center"> <input type="radio" name="incompleta03" /> </td>
+                                        <td align="center"> <input type="radio" name="novacunado03" /> </td>
+                                        <td align="center"> <input type="radio" name="nosabe03" /> </td>
+                                        <td align="center"> <input type="radio" name="referido03" /> </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <br /><br />
+                        <div align="center">
+                            <input type="submit" value=" Confirmar Todo y guardar &raquo" name="enviar" />
+                        </div>
+                        <div align="right">
+                            <input class="btn btn-primary" id="boton3" type="button" value=" ↑ ">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/js/empa.js" type="text/javascript"></script>
+</body>
+
+</html>
+
+<style>
+    body {
+        font-family: sans-serif;
+        background: #e2e2e6;
+        color: #475156;
+        margin: auto;
+        font-size: 16px;
+    }
+
+
+    #antecfamiliares.jumbotron {
+        float: right;
+    }
+
+    #antecedfamiliares {
+        float: right;
+    }
+
+
+
+    #formulario1 {
+        padding: 1px 20px 1px 15px;
+    }
+
+    form {
+        width: 100%;
+        font-size: 80%;
+    }
+
+    #tipocolor1 {
+        background-color: #cdcdd0;
+    }
+
+    #tipocolor2 {
+        background-color: #ececed;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .card-group {
+        padding: 5px 90px 5px 100px;
+    }
+
+    #panel, #flip {
+        padding: 25px;
+        text-align: center;
+        background-color: #dbdfee;
+        border: solid 1px #c3c3c3;
+        font-size: 165%;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    #panel {
+        padding: 35px;
+        display: none;
+    }
+
+    #panel1, #flip1 {
+        padding: 25px;
+        text-align: center;
+        background-color: #dbdfee;
+        border: solid 1px #c3c3c3;
+        font-size: 165%;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    #panel1 {
+        padding: 50px;
+        display: none;
+    }
+
+    #panel2, #flip2 {
+        padding: 25px;
+        text-align: center;
+        background-color: #dbdfee;
+        border: solid 1px #c3c3c3;
+        font-size: 165%;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    #panel2 {
+        padding: 50px;
+        display: none;
+    }
+
+    #panel3, #flip3 {
+        padding: 25px;
+        text-align: center;
+        background-color: #dbdfee;
+        border: solid 1px #c3c3c3;
+        font-size: 165%;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    #panel3 {
+        padding: 50px 100px;
+        display: none;
+    }
+
+    h2 {
+        color: #041c8d;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: xx-large;
+        font-style: inherit;
+    }
+
+    h3 {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: x-large;
+    }
+
+    h4 {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: initial;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 12px 16px;
+        z-index: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 12px 16px;
+        z-index: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .btn-lg {
+        padding: 20px 30px 20px 30px;
+        margin: 20px 20px 20px 50px;
+        align-content: center;
+    }
+
+    .btn-primary {
+        margin: 20px 0px 20px 50px;
+        font-size: 90%;
+        font-family: 50%;
+    }
+
+    #flip01, #flip02, #flip03 {
+        margin: 5px 0px 5px 5px;
+        font-size: 15px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+</style>
+
+
